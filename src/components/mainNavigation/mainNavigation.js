@@ -14,3 +14,4 @@ const navigationItems = [
 const navigationLogo = [
   { src: "../../../public/vsCode.svg", alt: "logo of Visual Studio Code" },
 ];
+export default { navigationItems, navigationLogo };

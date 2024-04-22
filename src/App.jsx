@@ -1,7 +1,10 @@
-import { useState } from "react";
-
+import MainNavigation from "./components/mainNavigation/mainNavigation.jsx";
 function App() {
-  return <></>;
+  return (
+    <>
+      <MainNavigation />
+    </>
+  );
 }
 
 export default App;

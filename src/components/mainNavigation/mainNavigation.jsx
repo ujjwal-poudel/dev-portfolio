@@ -1,14 +1,15 @@
-import navigationItems from "./mainNavigationItems";
-import navigationLogo from "./mainNavigationItems";
+import React from "react";
+import { navigationItems} from "./mainNavigationItems.js";
+import { navigationLogo} from "./mainNavigationItems.js";
 
 function MainNavigation() {
   return (
-    <header>
+    <header className="bg-gray-800 flex p-3 gap-5">
       {navigationLogo.map((logo) => (
         <img  key={logo.alt} src={logo.src} alt={logo.alt} />
       ))}
       <nav>
-        <ul>
+        <ul className="flex text-white gap-3">
           {navigationItems.map((item) => (
             <li key={item.name}>{item.name}</li>
           ))}

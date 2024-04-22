@@ -1,4 +1,3 @@
-import React from "react";
 import { navigationItems} from "./mainNavigationItems.js";
 import { navigationLogo} from "./mainNavigationItems.js";
 
@@ -11,7 +10,7 @@ function MainNavigation() {
       <nav>
         <ul className="flex text-white gap-3">
           {navigationItems.map((item) => (
-            <li key={item.name}>{item.name}</li>
+            <li key={item.name}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</li>
           ))}
         </ul>
       </nav>

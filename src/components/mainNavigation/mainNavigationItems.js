@@ -14,5 +14,4 @@ const navigationItems = [
 const navigationLogo = [
   { src: "../../../public/vsCode.svg", alt: "logo of Visual Studio Code" },
 ];
-// module.exports = { navigationItems, navigationLogo };
 export { navigationItems, navigationLogo };

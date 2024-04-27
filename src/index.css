@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-height{
+    height: calc(100vh - 2.25rem);
+}

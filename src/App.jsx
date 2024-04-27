@@ -3,7 +3,7 @@ function App() {
   return (
     <>
       <MainNavigation />
-      <div className="bg-mainBackground bg-no-repeat w-screen h-screen">
+      <div className="bg-mainBackground bg-no-repeat w-screen bg-height bg-cover bg-center">
         
       </div>
     </>

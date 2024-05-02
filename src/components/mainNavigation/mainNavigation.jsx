@@ -1,7 +1,7 @@
 import { navigationItems} from "./mainNavigationItems.js";
 import { navigationLogo} from "./mainNavigationItems.js";
 
-function MainNavigation() {
+export default function MainNavigation() {
   return (
     <header className="bg-gray-main-nav flex p-3 gap-7 mix-blend-hue m-auto px-10 py-2.5">
       {navigationLogo.map((logo) => (
@@ -17,5 +17,3 @@ function MainNavigation() {
     </header>
   );
 }
-
-export default MainNavigation;

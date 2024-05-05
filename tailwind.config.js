@@ -12,6 +12,8 @@ export default {
       'inactive' : '#D9D9D9',
       'active' : '#FFFFFF',
       'gray-main-nav' : '#001329',
+      'explorer' : 'rgba(23, 28, 34, 0.20)',
+      'filestab' : 'rgba(40, 49, 59, 0.20)',
     },
     backgroundImage: {
       'mainBackground' : "url('/background.svg')",

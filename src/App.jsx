@@ -27,6 +27,7 @@ function App() {
           <div className="flex flex-row">
             <ExplorerTab />
             <FilesBar />
+
           </div>
         </div>
       </div>

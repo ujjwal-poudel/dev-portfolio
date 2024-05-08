@@ -6,11 +6,26 @@ export default function FilesBar() {
     // State for the main explorer open
     const [mainExplorerOpen, setMainExplorerOpen] = useState(true);
     const [filesOpen, setFilesOpen] = useState("flex flex-col");
-
+    
     // State for work files
     const [workFilesOpen, setWorkFilesOpen] = useState(false);
     const [workFilesSection, setWorkFilesSection] = useState("flex flex-col pl-[15px]");
-
+    const activeClass = ["bg-[#1E1E1E]", "text-red-500"];
+    const toggleActive = (e) => {
+        console.log('clicked');
+        const allItems = e.target.parentNode.children;
+        for (let i = 0; i < allItems.length; i++) {
+            activeClass.forEach((item) => {
+                allItems[i].classList.remove(item);
+            });
+            
+        }
+        activeClass.forEach((item) => {
+            e.target.classList.add(item);
+        });
+        
+        
+    };
     // Function to change the main explorer open
     const changeMainExplorerOpen = () => {
         setMainExplorerOpen(!mainExplorerOpen);
@@ -55,7 +70,7 @@ export default function FilesBar() {
                 <div className="text-[#FFFFFF] text-xs pl-[10px]">
                     <ul>
                         {regFiles.map((file, index) => (
-                            <li key={index} className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]">
+                            <li key={index} className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]" onClick={toggleActive}>
                                 {file.title}
                             </li>
                         ))}
@@ -70,7 +85,7 @@ export default function FilesBar() {
                         <div className={workFilesSection}>
                         {workFiles.map((file, index) => 
                         (
-                            <span key={index}className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]">
+                            <span key={index}className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]" onClick={toggleActive}>
                                 {file.title}</span>
                         ))
                         }

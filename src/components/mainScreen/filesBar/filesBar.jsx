@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { regFiles, workFiles } from "./files";
 
 export default function FilesBar() {
@@ -10,22 +10,17 @@ export default function FilesBar() {
     // State for work files
     const [workFilesOpen, setWorkFilesOpen] = useState(false);
     const [workFilesSection, setWorkFilesSection] = useState("flex flex-col pl-[15px]");
-    const activeClass = ["bg-[#1E1E1E]", "text-red-500"];
-    const toggleActive = (e) => {
-        console.log('clicked');
-        const allItems = e.target.parentNode.children;
-        for (let i = 0; i < allItems.length; i++) {
-            activeClass.forEach((item) => {
-                allItems[i].classList.remove(item);
-            });
-            
-        }
-        activeClass.forEach((item) => {
-            e.target.classList.add(item);
-        });
-        
-        
-    };
+    
+    // state to store background color
+    const [bgColor, setBgColor] = useState("");
+    const click = color => {
+        setBgColor(color);
+    }
+
+    useEffect(() => {
+        document.body.style.backgroundColor = bgColor;
+    }, [bgColor]);
+
     // Function to change the main explorer open
     const changeMainExplorerOpen = () => {
         setMainExplorerOpen(!mainExplorerOpen);
@@ -70,7 +65,7 @@ export default function FilesBar() {
                 <div className="text-[#FFFFFF] text-xs pl-[10px]">
                     <ul>
                         {regFiles.map((file, index) => (
-                            <li key={index} className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]" onClick={toggleActive}>
+                            <li key={index} className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px] text-sm" onClick={() => {click("Yellow")}}>
                                 {file.title}
                             </li>
                         ))}
@@ -79,13 +74,13 @@ export default function FilesBar() {
                         <div className="flex flex-row items-center" onClick={changeWorkFilesOpen}>
                             <span className={changeDownIconWork}></span>
                             <span className="icon-[lucide--folder] pr-[20px] text-[12px]"></span>
-                            <h1 className="text-xs">Work Files</h1>
+                            <h1 className="text-sm">Work Files</h1>
                         </div>
                         
                         <div className={workFilesSection}>
-                        {workFiles.map((file, index) => 
+                        {workFiles.map((file, index) =>
                         (
-                            <span key={index}className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px]" onClick={toggleActive}>
+                            <span key={index}className="before:icon-[lucide--file] before:pl-[20px] before:text-[12px] pt-[4px] text-sm" onClick={() => {click("yellow")}}>
                                 {file.title}</span>
                         ))
                         }
